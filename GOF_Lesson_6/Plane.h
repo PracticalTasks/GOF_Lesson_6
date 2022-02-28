@@ -4,12 +4,30 @@
 
 class Plane : public DynamicObject {
 public:
-
     void Draw() override;
-
     inline void ChangePlaneY(double dy) { yDirection += dy; }
-
-private:
+ 
+protected:
+    virtual void DrawBody();
+    virtual void DrawWings();
+    virtual void DrawTail();
 
 };
+
+class ColorPlane : public Plane
+{
+public:
+    void DrawBody()override;
+    void DrawWings()override;
+    void DrawTail()override;
+};
+
+class BigPlane : public Plane
+{
+public:
+    void DrawBody()override;
+    void DrawWings()override;
+    void DrawTail()override;
+};
+
 
